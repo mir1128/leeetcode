@@ -2,26 +2,30 @@ package com.looboo.algorithm.leetcode;
 
 public class Partition86 {
     public ListNode partition(ListNode head, int x) {
+
+        ListNode lessList = new ListNode(-1);
+        ListNode lessCurrent = lessList;
+
+        ListNode prev = new ListNode(-1);
+        ListNode dummyHead = prev;
+        prev.next = head;
         ListNode current = head;
-        ListNode prev = null;
 
-        while (current != null && current.val != x) {
-            prev = current;
-            current = current.next;
-        }
-
-        ListNode lessNode = current;
-
-        while (lessNode != null) {
-            ListNode next = lessNode.next;
-            if (lessNode.val < x) {
-                prev.next = lessNode;
-                lessNode.next = current;
-                prev = lessNode;
+        while (current != null) {
+            ListNode next = current.next;
+            if (current.val < x) {
+                prev.next = current.next;
+                lessCurrent.next = current;
+                current.next = null;
+                lessCurrent = current;
+            } else {
+                prev = current;
             }
-            lessNode = next;
+            current = next;
         }
-        return head;
+
+        lessCurrent.next = dummyHead.next;
+        return lessList.next;
     }
 
     public static void main(String[] args) {
