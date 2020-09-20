@@ -10,7 +10,6 @@ public class MaxDotProduct1458 {
 
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
-
                 if (i == 0 && j == 0) {
                     dp[i][j] = nums1[0] * nums2[0];
                 } else if (i == 0 && j != 0) {
@@ -18,8 +17,11 @@ public class MaxDotProduct1458 {
                 } else if (i != 0 && j == 0) {
                     dp[i][0] = max(nums1[i] * nums2[0], dp[i - 1][0]);
                 } else {
-                    dp[i][j] = max(nums1[i] * nums2[j] + dp[i - 1][j - 1], dp[i - 1][j - 1], dp[i - 1][j], dp[i][j - 1]);
+                    dp[i][j] = max(nums1[i] * nums2[j], nums1[i] * nums2[j] + dp[i - 1][j - 1], dp[i - 1][j - 1], dp[i - 1][j], dp[i][j - 1]);
                 }
+                System.out.println(String.format("i=%s,j=%s", i, j));
+                Utils.print(dp);
+                System.out.println("------------------------------");
             }
         }
 
@@ -49,7 +51,7 @@ public class MaxDotProduct1458 {
 //        int arr1[] = {-1,-1};
 //        int arr2[] = {1,1};
 
-        int arr1[] = {-3, -8};
+        int arr1[] = {-3, -8, 3, -10, 1, 3, 9};
         int arr2[] = {9, 2, 3, 7, -9, 1, -8, 5, -1, -1};
 
         System.out.println(new MaxDotProduct1458().maxDotProduct(arr1, arr2));
