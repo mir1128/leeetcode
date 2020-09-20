@@ -23,7 +23,7 @@ public class MaxDotProduct1458 {
             }
         }
 
-        System.out.println(Utils.print(dp));
+        Utils.print(dp);
         return dp[m - 1][n - 1];
     }
 
