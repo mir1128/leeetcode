@@ -40,7 +40,7 @@ public class MaxNumber321 {
         return 0;
     }
 
-    private List<Integer> merge(List<Integer> l1, List<Integer> l2) {
+    public List<Integer> merge(List<Integer> l1, List<Integer> l2) {
         List<Integer> result = new ArrayList<>();
 
         while (!l1.isEmpty() || !l2.isEmpty()) {
@@ -83,7 +83,51 @@ public class MaxNumber321 {
         return result.subList(0, num.length - k);
     }
 
-    public static void main(String[] args) {
-        
+    public List<Integer> merge1(List<Integer> l1, List<Integer> l2) {
+        int m = 0;
+        int n = 0;
+
+        List<Integer> result = new ArrayList<>();
+        while (m < l1.size() && n < l2.size()) {
+
+            int lastM = m;
+            int lastN = n;
+            while (l1.get(m).equals(l2.get(n))) {
+                ++m;
+                ++n;
+            }
+
+            if (m == l1.size()) {
+                result.addAll(l2.subList(lastN, n));
+                m = lastM;
+                continue;
+            }
+
+            if (n == l2.size()) {
+                result.addAll(l1.subList(lastM, m));
+                n = lastN;
+                continue;
+            }
+
+            if (l1.get(m) > l2.get(n)) {
+                result.add(l1.get(lastM));
+                m = lastM + 1;
+                n = lastN;
+            } else {
+                result.add(l2.get(lastN));
+                m = lastM;
+                n = lastN + 1;
+            }
+
+        }
+
+        if (m == l1.size()) {
+            result.addAll(l2.subList(n, l2.size()));
+        }
+
+        if (n == l2.size()) {
+            result.addAll(l1.subList(m, l1.size()));
+        }
+        return result;
     }
 }
