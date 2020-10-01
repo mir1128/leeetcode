@@ -1,2 +1,2 @@
-## 已完成 MaxDotProduct1458
-## 还没弄明白MinCameraCover968 
+### https://www.luogu.com.cn/
+### https://oi-wiki.org/basic/prefix-sum/  介绍前缀和 
