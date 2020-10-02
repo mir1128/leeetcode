@@ -27,4 +27,29 @@ public class TotalFruit904Test {
         int arr[] = {3,3,3,1,2,1,1,2,3,3,4};
         Assert.assertEquals(5, new TotalFruit904().totalFruit(arr));
     }
+
+
+    @Test
+    public void test01() {
+        int arr[] = {1, 2, 1};
+        Assert.assertEquals(3, new TotalFruit904().totalFruit1(arr));
+    }
+
+    @Test
+    public void test02() {
+        int arr[] = {0, 1, 2, 2};
+        Assert.assertEquals(3, new TotalFruit904().totalFruit1(arr));
+    }
+
+    @Test
+    public void test03() {
+        int arr[] = {1, 2, 3, 2, 2};
+        Assert.assertEquals(4, new TotalFruit904().totalFruit1(arr));
+    }
+
+    @Test
+    public void test04() {
+        int arr[] = {3,3,3,1,2,1,1,2,3,3,4};
+        Assert.assertEquals(5, new TotalFruit904().totalFruit1(arr));
+    }
 }
