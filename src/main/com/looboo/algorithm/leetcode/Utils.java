@@ -1,5 +1,11 @@
 package com.looboo.algorithm.leetcode;
 
+import org.apache.commons.io.IOUtils;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.stream.Stream;
+
 public class Utils {
     public static void print(int arr[]) {
         System.out.println(format(arr));
@@ -30,5 +36,12 @@ public class Utils {
         return stringBuilder.toString();
     }
 
+    public static int[] loadFromTxt(String filename) throws IOException {
+        InputStream inputStream = Utils.class.getClassLoader().getResourceAsStream(filename);
+        String s = IOUtils.toString(inputStream, "UTF-8");
+        s = s.substring(1, s.length() - 1);
+        String[] split = s.split(",");
+        return Stream.of(split).filter(str -> !str.trim().isEmpty()).mapToInt(Integer::valueOf).toArray();
+    }
 
 }
