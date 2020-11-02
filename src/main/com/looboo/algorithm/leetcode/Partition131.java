@@ -1,9 +1,12 @@
 package com.looboo.algorithm.leetcode;
 
+import java.nio.CharBuffer;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Stack;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Partition131 {
 //
@@ -92,5 +95,22 @@ public class Partition131 {
                 }
             }
         }
+    }
+
+    public List<List<String>> manacher(String s) {
+        List<List<String>> result = new ArrayList<>();
+
+        String processed = IntStream
+                .range(0, s.length())
+                .mapToObj(i -> String.valueOf(s.charAt(i)))
+                .collect(Collectors.joining("#", "#", "#"));
+
+        int[] p = new int[2 * s.length() + 1];
+
+        for (int i = 0; i < 2 * s.length() + 1; i++) {
+
+        }
+
+        return result;
     }
 }
