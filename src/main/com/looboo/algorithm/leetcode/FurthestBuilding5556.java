@@ -1,28 +1,24 @@
 package com.looboo.algorithm.leetcode;
 
+import java.util.PriorityQueue;
+
 public class FurthestBuilding5556 {
     public int furthestBuilding(int[] heights, int bricks, int ladders) {
-
+        PriorityQueue<Integer> priorityQueue = new PriorityQueue<>();
         int n = heights.length;
-        int[][] choices = new int[n][2];
 
-        int[] prev = new int[n];
+        for (int i = 0; i + 1 < n; i++) {
+            if (heights[i + 1] > heights[i]) {
+                priorityQueue.add(heights[i + 1] - heights[i]);
 
-        for (int i = 1; i < n; i++) {
-            prev[i] = Math.max(0, heights[i] - heights[i - 1]);
-        }
-
-        choices[0] = new int[]{bricks, bricks};
-        int i = 1;
-        for (; i < n; i++) {
-            if (prev[i] == 0) {
-                choices[i] = choices[i - 1];
-            } else {
-                if (choices[i-1][0] >= prev[i]) {
+                if (priorityQueue.size() > ladders) {
+                    bricks -= priorityQueue.poll();
+                    if (bricks < 0) {
+                        return i;
+                    }
                 }
             }
         }
-
-        return i;
+        return n - 1;
     }
 }
