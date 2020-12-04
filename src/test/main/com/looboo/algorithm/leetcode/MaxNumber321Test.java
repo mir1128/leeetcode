@@ -1,20 +1,15 @@
 package com.looboo.algorithm.leetcode;
 
-import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.Arrays;
-import java.util.List;
-
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertArrayEquals;
 
 public class MaxNumber321Test {
 
     @Test
-    public void merge1() {
-
-        List<Integer> result = new MaxNumber321().merge1(Arrays.asList(9, 1, 2), Arrays.asList(9, 1, 4, 5));
-
-        Assert.assertArrayEquals(new int[]{9, 9, 1, 4, 5, 1, 2}, result.stream().mapToInt(i -> i).toArray());
+    public void test01() {
+        int[] nums1 = {3, 4, 6, 5};
+        int[] nums2 = {9, 1, 2, 5, 8, 3};
+        assertArrayEquals(new int[]{9, 8, 6, 5, 3}, new MaxNumber321().maxNumber(nums1, nums2, 5));
     }
 }
