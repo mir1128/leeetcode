@@ -19,4 +19,9 @@ public class LongestPalindromeSubseq516Test {
     public void test03() {
         assertEquals(8, new LongestPalindromeSubseq516().longestPalindromeSubseq("baaaaabbab"));
     }
+
+    @Test
+    public void test04() {
+        assertEquals(2, new LongestPalindromeSubseq516().longestPalindromeSubseq("cbbd"));
+    }
 }

@@ -7,7 +7,7 @@ public class CountSubstrings647 {
 
         for (int i = 0; i < s.length() - 1; i++) {
             sum += len(s, i, i);
-            sum += len(s, i, i+1);
+            sum += len(s, i, i + 1);
         }
 
         return sum + 1;
@@ -20,5 +20,35 @@ public class CountSubstrings647 {
         }
         return n;
     }
+
+    public int countSubstrings1(String s) {
+
+        int n = s.length();
+        int count = 0;
+        boolean[][] dp = new boolean[n][n];
+
+        for (int len = 1; len <= n; len++) {
+            for (int start = 0; start <= n - len; start++) {
+                if (len == 1) {
+                    dp[start][start] = true;
+                    count += 1;
+                } else if (len == 2) {
+                    if (s.charAt(start) == s.charAt(start + 1)) {
+                        dp[start][start + 1] = true;
+                        count += 1;
+                    }
+                } else {
+                    if (s.charAt(start) == s.charAt(start + len - 1)) {
+                        if (dp[start + 1][start + len - 2]) {
+                            dp[start][start + len - 1] = true;
+                            count += 1;
+                        }
+                    }
+                }
+            }
+        }
+        return count;
+    }
+
 
 }

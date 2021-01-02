@@ -1,10 +1,11 @@
 package com.looboo.algorithm.leetcode;
 
+import javax.print.DocFlavor;
 import java.util.HashMap;
 import java.util.Map;
 
 public class IsIsomorphic {
-    public boolean isIsomorphic(String s, String t) {
+    public boolean isIsomorphic1(String s, String t) {
         Map<Character, Character> mapping = new HashMap<>();
         Map<Character, Character> reverseMapping = new HashMap<>();
 
@@ -24,6 +25,22 @@ public class IsIsomorphic {
                 return false;
             }
         }
+        return true;
+    }
+
+    public boolean isIsomorphic(String s, String t) {
+        Map<Character, Character> mapping = new HashMap<>();
+
+        for (int i = 0; i < s.length(); i++) {
+            if (mapping.containsKey(s.charAt(i))) {
+                if (t.charAt(i) != mapping.get(s.charAt(i))) {
+                    return false;
+                }
+            } else {
+                mapping.put(s.charAt(i), t.charAt(i));
+            }
+        }
+
         return true;
     }
 }
