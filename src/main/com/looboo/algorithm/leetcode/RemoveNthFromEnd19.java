@@ -30,4 +30,25 @@ public class RemoveNthFromEnd19 {
         int arr[] = {1, 2, 3, 4, 5};
         new RemoveNthFromEnd19().removeNthFromEnd(ListNode.build(arr), 2);
     }
+
+    public ListNode removeNthFromEnd1(ListNode head, int n) {
+        ListNode dummy = new ListNode(-1);
+        dummy.next = head;
+
+        ListNode curr = dummy;
+        int count = 0;
+        while (count++ < n) curr = curr.next;
+
+        ListNode prev = dummy;
+        while (curr.next != null) {
+            curr = curr.next;
+            prev = prev.next;
+        }
+
+        ListNode deleteNode = prev.next;
+        prev.next = deleteNode.next;
+        deleteNode.next = null;
+
+        return dummy.next;
+    }
 }
