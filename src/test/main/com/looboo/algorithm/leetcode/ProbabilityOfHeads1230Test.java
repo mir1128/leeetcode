@@ -16,4 +16,10 @@ public class ProbabilityOfHeads1230Test {
         double[] arr = {0.5, 0.5, 0.5, 0.5, 0.5};
         assertEquals(0.03125, new ProbabilityOfHeads1230().probabilityOfHeads(arr, 0), 0.0000001);
     }
+
+    @Test
+    public void test03() {
+        double[] arr = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
+        assertEquals(0, new ProbabilityOfHeads1230().probabilityOfHeads(arr, 9), 0.0000001);
+    }
 }

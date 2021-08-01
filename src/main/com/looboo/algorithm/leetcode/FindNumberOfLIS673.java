@@ -34,4 +34,15 @@ public class FindNumberOfLIS673 {
         }
         return sum;
     }
+
+    public int findNumberOfLIS1(int[] nums) {
+        int n = nums.length;
+
+        int [] dp = new int[n];
+        for (int i = 0; i < n; i++) {
+
+        }
+
+        return 0;
+    }
 }
