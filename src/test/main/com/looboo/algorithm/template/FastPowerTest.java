@@ -15,4 +15,9 @@ public class FastPowerTest {
     public void fastPower2Test() {
         assertEquals(1024, FastPower.fastPower2(2, 10));
     }
+
+    @Test
+    public void fastPowerWithModTest() {
+        assertEquals(7, FastPower.fastPowerWithMod(2 ,10 ,9));
+    }
 }
