@@ -1,7 +1,8 @@
 package com.looboo.algorithm.algo4;
 
-import com.looboo.algorithm.leetcode.Utils;
+
 import com.looboo.algorithm.lib.GCD;
+import com.looboo.algorithm.utils.Utils;
 
 public class Ex1_1_30 {
     public static boolean[][] gcdMatrix(int N) {

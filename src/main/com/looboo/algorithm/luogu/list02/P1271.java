@@ -1,6 +1,5 @@
 package com.looboo.algorithm.luogu.list02;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class P1271 {
@@ -9,20 +8,20 @@ public class P1271 {
         int n = scanner.nextInt();
         int m = scanner.nextInt();
 
-        int[] votes = new int[m];
+        int[] votes = new int[1000];
+
         for (int i = 0; i < m; i++) {
-            votes[i] = scanner.nextInt();
+            votes[scanner.nextInt()]++;
         }
 
-        solve(votes, m);
-    }
-
-    public static void solve(int[] votes, int m) {
-        Arrays.sort(votes, 0, m);
-
-        System.out.print(votes[0]);
-        for (int i = 1; i < m; i++) {
-            System.out.printf(" %s", votes[i]);
+        StringBuilder sb = new StringBuilder();
+        for (int i = 1; i < 1000; i++) {
+            if (votes[i] != 0) {
+                for (int j = 0; j < votes[i]; j++) {
+                    sb.append(i).append(" ");
+                }
+            }
         }
+        System.out.println(sb);
     }
 }

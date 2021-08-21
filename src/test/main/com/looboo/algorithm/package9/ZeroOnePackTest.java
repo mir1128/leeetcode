@@ -1,6 +1,6 @@
 package com.looboo.algorithm.package9;
 
-import com.looboo.algorithm.leetcode.Utils;
+import com.looboo.algorithm.utils.Utils;
 import com.looboo.algorithm.package9.pack01.ZeroOnePack;
 import org.junit.Test;
 

@@ -1,8 +1,7 @@
 package com.looboo.algorithm.leetcode;
 
+import com.looboo.algorithm.utils.Utils;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class ReconstructQueue406Test {
     @Test

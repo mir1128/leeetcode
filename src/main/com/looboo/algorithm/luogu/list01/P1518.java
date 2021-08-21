@@ -1,6 +1,6 @@
 package com.looboo.algorithm.luogu.list01;
 
-import com.looboo.algorithm.leetcode.Utils;
+import com.looboo.algorithm.utils.Utils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -54,7 +54,7 @@ public class P1518 {
             n++;
 
 //            System.out.printf("--------%s---------%n", n);
-//            Utils.print(board);
+            Utils.print(board);
 
             if (john[0] == cow[0] && john[1] == cow[1]) {
                 return n;

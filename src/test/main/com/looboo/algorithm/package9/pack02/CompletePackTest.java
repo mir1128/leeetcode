@@ -1,6 +1,6 @@
 package com.looboo.algorithm.package9.pack02;
 
-import com.looboo.algorithm.leetcode.Utils;
+import com.looboo.algorithm.utils.Utils;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
