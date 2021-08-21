@@ -1,9 +1,8 @@
 package com.looboo.algorithm.leetcode;
 
-import com.looboo.algorithm.utils.Utils;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertArrayEquals;
 
 public class UtilsTest {
 
