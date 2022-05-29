@@ -1,6 +1,7 @@
 package com.looboo.algorithm.template;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Stack;
 
@@ -46,5 +47,48 @@ public class Permutation {
             permuteNoRepeat(nums, target, curr + 1, stack, result);
             stack.pop();
         }
+    }
+
+    public static <T> T[] prePermutation(T[] arr, Comparator<T> comparator) {
+        if (arr == null || arr.length <= 1) return arr;
+
+        int i = arr.length - 2;
+        while (i >= 0 && comparator.compare(arr[i], arr[i + 1]) <= 0) --i;
+
+        if (i >= 0) {
+            int j = arr.length - 1;
+            while (comparator.compare(arr[j], arr[i]) >= 0) --j;
+            swap(arr, i, j);
+        }
+
+        reverse(arr, i + 1, arr.length - 1);
+        return arr;
+    }
+
+    public static <T> T[] nextPermutation(T[] arr, Comparator<T> comparator) {
+        if (arr == null || arr.length <= 1) return arr;
+
+        int i = arr.length - 2;
+        while (i >= 0 && comparator.compare(arr[i], arr[i + 1]) >= 0) --i;
+
+        if (i >= 0) {
+            int j = arr.length - 1;
+            while (comparator.compare(arr[j], arr[i]) <= 0) --j;
+            swap(arr, i, j);
+        }
+
+        reverse(arr, i + 1, arr.length - 1);
+
+        return arr;
+    }
+
+    private static <T> void swap(T[] arr, int i, int j) {
+        T temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+
+    private static <T> void reverse(T[] arr, int i, int j) {
+        while (i < j) swap(arr, i++, j--);
     }
 }
